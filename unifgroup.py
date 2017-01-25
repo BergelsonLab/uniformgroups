@@ -38,6 +38,7 @@ def get_mode_group_size(dict_counts):
     return mode_group_size
 
 def outlire_file_groups(dict_counts, mode_group_size):
+    #Commented code below writes mode_group_size and files that don't comply with thise size to a text file
     #f = open("output_file_groups.txt", "wb")
     #f.write("Most group sizes = " + str(mode_group_size) + "\n")
     #for key in dict_counts.keys():
@@ -51,6 +52,12 @@ def outlire_file_groups(dict_counts, mode_group_size):
     else:
         print False
         print dict_counts
+
+def outlires_exist(dict_counts, mode_group_size):
+    for key in dict_counts.keys():
+        if dict_counts[key] != mode_group_size:
+            return True
+    return False
 
 if __name__ == "__main__":
     file_path = sys.argv[1]
